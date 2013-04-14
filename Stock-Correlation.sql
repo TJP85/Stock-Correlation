@@ -46,12 +46,12 @@ Begin
       from (
             select symbol 
        	      from (
-          		      select symbol, rownum as rn 
-          			      from ( 
-                		        select symbol 
-                              from companies_10_mil_plus_div 
-                              order by symbol
-     			                  )
+          	    select symbol, rownum as rn 
+          	      from ( 
+                	    select symbol 
+                            from companies_10_mil_plus_div 
+                            order by symbol
+     			    )
                    ) 
             where rn = i
             );
@@ -80,7 +80,7 @@ Begin
                                   from tdate_symbol_percent_top_symb a, tdate_symbol_percent_top_symb b 
                                   where a.tdate < '04-feb-2013' and a.tdate = b.tdate and  
                                   a.symbol = var_symbol order by a.symbol asc
- 			                          ) c 
+ 			          ) c 
                         ) d 
                 ) e
           where x_date = '01-feb-2013';
